@@ -5,18 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.campushere.databinding.FragmentRegisterBinding
 import com.example.campushere.databinding.FragmentUserBinding
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 
 class RegisterFragment : Fragment() {
 
     private var _binding : FragmentRegisterBinding? = null
     private val binding get() = _binding!!
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        auth = Firebase.auth
     }
 
     override fun onCreateView(
@@ -36,8 +42,27 @@ class RegisterFragment : Fragment() {
 
 
     fun registerPage(view: View){
-        val action = RegisterFragmentDirections.actionRegisterFragmentToUserFragment()
-        Navigation.findNavController(view).navigate(action)
+
+        val email = binding.editTextTextEmailAddress2.text.toString()
+        val password = binding.editTextTextPassword2.text.toString()
+        val passwordConfirm = binding.editTextTextPassword3.text.toString()
+
+        if(email.isNotEmpty() && password.isNotEmpty()){
+            if(password == passwordConfirm){
+                auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        //user created
+                        val action = RegisterFragmentDirections.actionRegisterFragmentToUserFragment()
+                        Navigation.findNavController(view).navigate(action)
+
+                    }
+                }.addOnFailureListener { exception ->
+                    Toast.makeText(requireContext(),exception.localizedMessage,Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
+
     }
 
 
