@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import com.example.campushere.databinding.FragmentUserBinding
 
 
@@ -30,16 +31,24 @@ class UserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnRegister.setOnClickListener { register(it) }
+        binding.btnRegister.setOnClickListener { goRegister(it) }
         binding.btnLogin.setOnClickListener { login(it) }
+        binding.textViewResetPassword.setOnClickListener { resetPasswordPage((it)) }
     }
 
-    fun register(view: View){
-
+    fun goRegister(view: View){
+        val action = UserFragmentDirections.actionUserFragmentToRegisterFragment2()
+        Navigation.findNavController(view).navigate(action)
     }
 
     fun login(view: View){
+        val action = UserFragmentDirections.actionUserFragmentToMainFragment2()
+        Navigation.findNavController(view).navigate(action)
+    }
 
+    fun resetPasswordPage(view: View){
+        val action = UserFragmentDirections.actionUserFragmentToPasswordresetFragment2()
+        Navigation.findNavController(view).navigate(action)
     }
 
     override fun onDestroyView() {

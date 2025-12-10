@@ -10,9 +10,11 @@
 
     <EditText
         android:id="@+id/editTextTextPassword3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="confirm password"
         android:inputType="textPassword"
@@ -23,9 +25,11 @@
 
     <EditText
         android:id="@+id/editTextText5"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="Write your department"
         android:inputType="text"
@@ -36,9 +40,11 @@
 
     <EditText
         android:id="@+id/editTextName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="Melis"
         android:inputType="text"
@@ -49,9 +55,11 @@
 
     <EditText
         android:id="@+id/editTextTextPassword2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
@@ -61,9 +69,11 @@
 
     <EditText
         android:id="@+id/editTextSurname"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="Kaynarca"
         android:inputType="text"
@@ -73,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
     <Button
-        android:id="@+id/buttonRegisterPage"
+        android:id="@+id/btnRegisterPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
@@ -84,8 +94,11 @@
 
     <EditText
         android:id="@+id/editTextTextEmailAddress2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:ems="10"
         android:hint="melis@gmail.com"
         android:inputType="textEmailAddress"
