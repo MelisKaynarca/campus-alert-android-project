@@ -12,6 +12,7 @@ import com.example.campushere.databinding.FragmentUserBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterFragment : Fragment() {
 
@@ -44,6 +45,9 @@ class RegisterFragment : Fragment() {
     fun registerPage(view: View){
 
         val email = binding.editTextTextEmailAddress2.text.toString()
+        val name = binding.editTextName.text.toString()
+        val surname = binding.editTextSurname.text.toString()
+        val department = binding.editTextDepartment.text.toString()
         val password = binding.editTextTextPassword2.text.toString()
         val passwordConfirm = binding.editTextTextPassword3.text.toString()
 
@@ -51,9 +55,38 @@ class RegisterFragment : Fragment() {
             if(password == passwordConfirm){
                 auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
                     if(task.isSuccessful){
-                        //user created
-                        val action = RegisterFragmentDirections.actionRegisterFragmentToUserFragment()
-                        Navigation.findNavController(view).navigate(action)
+
+
+                        val uid = task.result?.user?.uid
+
+                        if (uid == null) {
+
+                            return@addOnCompleteListener
+                        }
+
+                        val userMap = hashMapOf(
+                            "name" to name,
+                            "surname" to surname,
+                            "department" to department,
+                            "email" to email,
+                            "userType" to true //only admin false   {0,1} {admin,user}
+                        )
+
+
+                        FirebaseFirestore.getInstance()
+                            .collection("Users")
+                            .document(uid)   // doc id = auth uid
+                            .set(userMap)
+                            .addOnSuccessListener {
+                                //user created
+                                val action = RegisterFragmentDirections.actionRegisterFragmentToUserFragment()
+                                Navigation.findNavController(view).navigate(action)
+                            }
+                            .addOnFailureListener { e ->
+                                Toast.makeText(requireContext(), e.localizedMessage, Toast.LENGTH_LONG).show()
+                            }
+
+
 
                     }
                 }.addOnFailureListener { exception ->

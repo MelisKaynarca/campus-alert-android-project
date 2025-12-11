@@ -24,7 +24,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/editTextDepartment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -63,9 +63,9 @@
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText5"
-        app:layout_constraintStart_toStartOf="@+id/editTextText5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText5" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextDepartment"
+        app:layout_constraintStart_toStartOf="@+id/editTextDepartment"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDepartment" />
 
     <EditText
         android:id="@+id/editTextSurname"

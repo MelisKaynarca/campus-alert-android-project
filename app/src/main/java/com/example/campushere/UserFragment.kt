@@ -41,11 +41,11 @@ class UserFragment : Fragment() {
         binding.btnRegister.setOnClickListener { goRegister(it) }
         binding.btnLogin.setOnClickListener { login(it) }
         binding.textViewResetPassword.setOnClickListener { resetPasswordPage((it)) }
-        val loginedUser = auth.currentUser
+        /*val loginedUser = auth.currentUser
         if(loginedUser!= null){
             val action = UserFragmentDirections.actionUserFragmentToMainFragment2()
             Navigation.findNavController(view).navigate(action)
-        }
+        }*/
     }
 
     fun goRegister(view: View){
