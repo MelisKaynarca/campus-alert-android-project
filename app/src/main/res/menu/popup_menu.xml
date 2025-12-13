@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/newIndicent" android:title="Add new indicent"></item>
+    <item android:id="@+id/mapIndicent" android:title="View indicent map page"></item>
+    <item android:id="@+id/profileUser" android:title="Profile and Management"></item>
+</menu>
