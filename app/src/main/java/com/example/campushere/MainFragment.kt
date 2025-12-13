@@ -45,14 +45,25 @@ class MainFragment : Fragment() , PopupMenu.OnMenuItemClickListener{
         inflater.inflate(R.menu.popup_menu,popup.menu)
         popup.setOnMenuItemClickListener(this)
 
-        val caution = Incident("caution","Yol calismasi","Gün boyunca mühendislik A kapısından giriş olmayacaktır. Yol bakım çalışması vardır.")
+
+        /*
 
         val caution1 = Incident("caution","Yol calismasi","Gün boyunca mühendislik A kapısından giriş olmayacaktır. Yol bakım çalışması vardır.")
         val caution2 = Incident("caution","Yol calismasi","Gün boyunca mühendislik A kapısından giriş olmayacaktır. Yol bakım çalışması vardır.")
-        val caution3 = Incident("caution","Yol calismasi","Gün boyunca mühendislik A kapısından giriş olmayacaktır. Yol bakım çalışması vardır.")
+        val caution3 = Incident("caution","Yol calismasi","Gün boyunca mühendislik A kapısından giriş olmayacaktır. Yol bakım çalışması vardır.",)
+        incidentList = arrayListOf(caution1,caution2,caution3)*//*change the incident structure*/
 
-        incidentList = arrayListOf(caution1,caution2,caution3)
 
+
+        val caution = Incident("caution","Yol calismasi","Gün boyunca mühendislik A kapısından giriş olmayacaktır. Yol bakım çalışması vardır.",latitude = 41.015137,
+            longitude = 28.979530)
+        val caution1 = Incident("caution","Yol calismasi","Gün boyunca mühendislik A kapısından giriş olmayacaktır. Yol bakım çalışması vardır.",latitude = 41.015137,
+            longitude = 28.979530)
+        val caution2 = Incident("caution","Yol calismasi","Gün boyunca mühendislik A kapısından giriş olmayacaktır. Yol bakım çalışması vardır.",latitude = 41.015137,
+            longitude = 28.979530)
+        val caution3 = Incident("caution","Yol calismasi","Gün boyunca mühendislik A kapısından giriş olmayacaktır. Yol bakım çalışması vardır.",latitude = 41.015137,
+            longitude = 28.979530)
+        incidentList = arrayListOf(caution,caution1,caution2,caution3)
         val adapter= IncidentAdapter(incidentList)
 
 
